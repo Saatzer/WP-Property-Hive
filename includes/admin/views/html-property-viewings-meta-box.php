@@ -79,6 +79,8 @@
 
                 $edit_link = get_edit_post_link( get_the_ID() );
 
+                $feedback_status = get_post_meta( get_the_ID(), '_feedback_status', TRUE );
+
                 $column_data = array(
                     'date_time' => '<a href="' . $edit_link . '" target="' . apply_filters('propertyhive_subgrid_link_target', '') . '" class="viewing-lightbox" data-viewing-id="' . get_the_ID() . '">' . date("H:i jS F Y", strtotime($the_viewing->_start_date_time)) . '</a>',
                     'applicants' =>  $the_viewing->get_applicants( true, true ),
@@ -86,7 +88,7 @@
                     'status' => $the_viewing->get_status(),
                 );
                 ?>
-                    <tr class="status-<?php echo $the_viewing->_status; ?>" >
+                    <tr id="propertyhive_property_viewings_<?php echo $feedback_status.'_'.get_the_ID(); ?>" class="status-<?php echo $the_viewing->_status; ?>">
                     <?php
                         foreach ( $columns as $column_key => $column )
                         {
