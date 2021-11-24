@@ -88,7 +88,7 @@
                     'status' => $the_viewing->get_status(),
                 );
                 ?>
-                    <tr id="propertyhive_property_viewings_<?php echo $feedback_status.'_'.get_the_ID(); ?>" class="status-<?php echo $the_viewing->_status; ?>">
+                    <tr id="propertyhive_property_viewings_<?php echo get_the_ID(); ?>" class="status-<?php echo $the_viewing->_status; ?> applicant-<?php echo $feedback_status ?>">
                     <?php
                         foreach ( $columns as $column_key => $column )
                         {
